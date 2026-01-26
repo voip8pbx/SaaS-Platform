@@ -1,6 +1,7 @@
 "use client";
 import { siteConfig } from "@/config/siteConfig";
 import { cn } from "@/lib/utils";
+import { ChatBot } from "@/components/shared/ChatBot";
 
 interface LayoutProps {
     activeTab: string;
@@ -117,6 +118,8 @@ export function MinimalHero({ activeTab, setActiveTab, showFlights, showHotels, 
                     ></div>
                 </div>
             </div>
+            {/* ChatBot */}
+            <ChatBot />
         </section>
     );
 }

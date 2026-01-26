@@ -30,17 +30,17 @@ const DESTINATIONS = [
 
 export function ModernDestinations() {
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-white dark:bg-slate-950">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
+                    <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">
                         Explore Featured Destinations
                     </h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {DESTINATIONS.map((dest) => (
-                        <div key={dest.id} className="group bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                        <div key={dest.id} className="group bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
                             <div className="relative h-56 w-full overflow-hidden">
                                 <Image
                                     src={dest.image}
@@ -51,11 +51,11 @@ export function ModernDestinations() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             <div className="p-6 flex flex-col flex-grow">
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">{dest.title}</h3>
-                                <p className="text-base text-slate-500 mb-6 flex-grow line-clamp-3 leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{dest.title}</h3>
+                                <p className="text-base text-slate-500 dark:text-slate-400 mb-6 flex-grow line-clamp-3 leading-relaxed">
                                     {dest.description}
                                 </p>
-                                <button className="w-full bg-white border border-slate-200 text-slate-700 hover:text-white hover:bg-slate-900 hover:border-slate-900 rounded-xl py-3 font-semibold transition-all shadow-sm">
+                                <button className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:text-white hover:bg-slate-900 dark:hover:bg-slate-700 hover:border-slate-900 dark:hover:border-slate-700 rounded-xl py-3 font-semibold transition-all shadow-sm">
                                     View Details
                                 </button>
                             </div>

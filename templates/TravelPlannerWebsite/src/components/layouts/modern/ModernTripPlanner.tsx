@@ -154,37 +154,37 @@ export function ModernTripPlanner() {
     };
 
     return (
-        <section className="py-20 bg-slate-50/50">
+        <section className="py-20 bg-slate-50/50 dark:bg-slate-950">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">Plan Your Trip</h2>
-                    <p className="text-slate-500 max-w-2xl mx-auto">Seamlessly book flights, hotels, and trains specifically curated for your next adventure.</p>
+                    <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">Plan Your Trip</h2>
+                    <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Seamlessly book flights, hotels, and trains specifically curated for your next adventure.</p>
                 </div>
             </div>
 
             <div className="w-full flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 px-4 md:px-8 scrollbar-hide">
                 {/* Find Flights Card */}
                 {features.flights && (
-                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col transition-transform hover:-translate-y-1 duration-300">
+                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 flex flex-col transition-transform hover:-translate-y-1 duration-300">
                         <div className="flex items-center space-x-3 mb-8">
-                            <div className="p-3 bg-blue-50 rounded-2xl">
+                            <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-2xl">
                                 <Plane className="w-6 h-6 text-blue-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900">Find Flights</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Find Flights</h3>
                         </div>
 
                         <div className="space-y-5 flex-grow">
                             {/* Trip Type Toggle */}
-                            <div className="flex bg-slate-100 p-1 rounded-lg w-fit">
+                            <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg w-fit">
                                 <button
                                     onClick={() => setTripType("oneWay")}
-                                    className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${tripType === "oneWay" ? "bg-white text-blue-600 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                                    className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${tripType === "oneWay" ? "bg-white dark:bg-slate-700 text-blue-600 shadow-sm" : "text-slate-500 dark:text-slate-400 hover:text-slate-700"}`}
                                 >
                                     One Way
                                 </button>
                                 <button
                                     onClick={() => setTripType("roundTrip")}
-                                    className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${tripType === "roundTrip" ? "bg-white text-blue-600 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                                    className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${tripType === "roundTrip" ? "bg-white dark:bg-slate-700 text-blue-600 shadow-sm" : "text-slate-500 dark:text-slate-400 hover:text-slate-700"}`}
                                 >
                                     Round Trip
                                 </button>
@@ -192,27 +192,27 @@ export function ModernTripPlanner() {
 
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">From</label>
+                                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">From</label>
                                     <div className="relative group">
                                         <Plane className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                         <input
                                             type="text"
                                             value={flightFrom}
                                             onChange={(e) => setFlightFrom(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all uppercase"
+                                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all uppercase"
                                             placeholder="From"
                                         />
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">To</label>
+                                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">To</label>
                                     <div className="relative group">
                                         <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                         <input
                                             type="text"
                                             value={flightTo}
                                             onChange={(e) => setFlightTo(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all uppercase"
+                                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all uppercase"
                                             placeholder="To"
                                         />
                                     </div>
@@ -221,27 +221,27 @@ export function ModernTripPlanner() {
 
                             <div className={`grid gap-4 ${tripType === 'roundTrip' ? 'grid-cols-2' : 'grid-cols-1'}`}>
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Departure</label>
+                                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">Departure</label>
                                     <div className="relative group">
                                         <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                         <input
                                             type="date"
                                             value={flightDate}
                                             onChange={(e) => setFlightDate(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         />
                                     </div>
                                 </div>
                                 {tripType === 'roundTrip' && (
                                     <div className="space-y-1.5 animate-in fade-in zoom-in-95 duration-200">
-                                        <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Return</label>
+                                        <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">Return</label>
                                         <div className="relative group">
                                             <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                             <input
                                                 type="date"
                                                 value={returnDate}
                                                 onChange={(e) => setReturnDate(e.target.value)}
-                                                className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                             />
                                         </div>
                                     </div>
@@ -255,7 +255,7 @@ export function ModernTripPlanner() {
                                     <select
                                         value={passengers}
                                         onChange={(e) => setPassengers(Number(e.target.value))}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all appearance-none"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all appearance-none"
                                     >
                                         {[1, 2, 3, 4, 5, 6].map(num => <option key={num} value={num}>{num} Passenger{num > 1 ? 's' : ''}</option>)}
                                     </select>
@@ -263,7 +263,7 @@ export function ModernTripPlanner() {
                             </div>
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-slate-100">
+                        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
                             <button
                                 onClick={handleFlightSearch}
                                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] flex items-center justify-center space-x-2"
@@ -277,12 +277,12 @@ export function ModernTripPlanner() {
 
                 {/* Book Hotels Card */}
                 {features.hotels && (
-                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col transition-transform hover:-translate-y-1 duration-300">
+                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 flex flex-col transition-transform hover:-translate-y-1 duration-300">
                         <div className="flex items-center space-x-3 mb-8">
-                            <div className="p-3 bg-blue-50 rounded-2xl">
+                            <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-2xl">
                                 <Building className="w-6 h-6 text-blue-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900">Book Hotels</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Book Hotels</h3>
                         </div>
 
                         <div className="space-y-5 flex-grow">
@@ -295,12 +295,12 @@ export function ModernTripPlanner() {
                                         value={hotelLocation}
                                         onChange={(e) => setHotelLocation(e.target.value)}
                                         onFocus={() => setActiveField('hotel')}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         placeholder="Where are you going?"
                                     />
                                     {/* Suggestions Dropdown */}
                                     {showSuggestions && activeField === 'hotel' && suggestions.length > 0 && (
-                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-100 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
+                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
                                             {suggestions.map((suggestion) => (
                                                 <div
                                                     key={suggestion.place_id}
@@ -309,7 +309,7 @@ export function ModernTripPlanner() {
                                                         setSuggestions([]);
                                                         setShowSuggestions(false);
                                                     }}
-                                                    className="p-3 hover:bg-blue-50 cursor-pointer text-sm font-semibold text-slate-700 border-b border-slate-50 last:border-0 transition-colors"
+                                                    className="p-3 hover:bg-blue-50 dark:hover:bg-slate-700 cursor-pointer text-sm font-semibold text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700 last:border-0 transition-colors"
                                                 >
                                                     {suggestion.description}
                                                 </div>
@@ -322,26 +322,26 @@ export function ModernTripPlanner() {
 
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Check In</label>
+                                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">Check In</label>
                                     <div className="relative group">
                                         <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                         <input
                                             type="date"
                                             value={checkIn}
                                             onChange={(e) => setCheckIn(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         />
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Check Out</label>
+                                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">Check Out</label>
                                     <div className="relative group">
                                         <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                         <input
                                             type="date"
                                             value={checkOut}
                                             onChange={(e) => setCheckOut(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         />
                                     </div>
                                 </div>
@@ -354,7 +354,7 @@ export function ModernTripPlanner() {
                                     <select
                                         value={guests}
                                         onChange={(e) => setGuests(Number(e.target.value))}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all appearance-none"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all appearance-none"
                                     >
                                         {[1, 2, 3, 4, 5, 6].map(num => <option key={num} value={num}>{num} Guest{num > 1 ? 's' : ''}</option>)}
                                     </select>
@@ -362,7 +362,7 @@ export function ModernTripPlanner() {
                             </div>
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-slate-100">
+                        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
                             <button
                                 onClick={handleHotelSearch}
                                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] flex items-center justify-center space-x-2"
@@ -376,12 +376,12 @@ export function ModernTripPlanner() {
 
                 {/* Book Cabs Card */}
                 {features.cabs && (
-                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col transition-transform hover:-translate-y-1 duration-300">
+                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 flex flex-col transition-transform hover:-translate-y-1 duration-300">
                         <div className="flex items-center space-x-3 mb-8">
-                            <div className="p-3 bg-blue-50 rounded-2xl">
+                            <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-2xl">
                                 <Car className="w-6 h-6 text-blue-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900">Book Cabs</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Book Cabs</h3>
                         </div>
 
                         <div className="space-y-5 flex-grow">
@@ -394,12 +394,12 @@ export function ModernTripPlanner() {
                                         value={cabFrom}
                                         onChange={(e) => setCabFrom(e.target.value)}
                                         onFocus={() => setActiveField('cabFrom')}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         placeholder="Pickup Location"
                                     />
                                     {/* Suggestions Dropdown */}
                                     {showSuggestions && activeField === 'cabFrom' && suggestions.length > 0 && (
-                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-100 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
+                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
                                             {suggestions.map((suggestion) => (
                                                 <div
                                                     key={suggestion.place_id}
@@ -408,7 +408,7 @@ export function ModernTripPlanner() {
                                                         setSuggestions([]);
                                                         setShowSuggestions(false);
                                                     }}
-                                                    className="p-3 hover:bg-blue-50 cursor-pointer text-sm font-semibold text-slate-700 border-b border-slate-50 last:border-0 transition-colors"
+                                                    className="p-3 hover:bg-blue-50 dark:hover:bg-slate-700 cursor-pointer text-sm font-semibold text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700 last:border-0 transition-colors"
                                                 >
                                                     {suggestion.description}
                                                 </div>
@@ -427,12 +427,12 @@ export function ModernTripPlanner() {
                                         value={cabTo}
                                         onChange={(e) => setCabTo(e.target.value)}
                                         onFocus={() => setActiveField('cabTo')}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         placeholder="Drop Location"
                                     />
                                     {/* Suggestions Dropdown */}
                                     {showSuggestions && activeField === 'cabTo' && suggestions.length > 0 && (
-                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-100 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
+                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
                                             {suggestions.map((suggestion) => (
                                                 <div
                                                     key={suggestion.place_id}
@@ -441,7 +441,7 @@ export function ModernTripPlanner() {
                                                         setSuggestions([]);
                                                         setShowSuggestions(false);
                                                     }}
-                                                    className="p-3 hover:bg-blue-50 cursor-pointer text-sm font-semibold text-slate-700 border-b border-slate-50 last:border-0 transition-colors"
+                                                    className="p-3 hover:bg-blue-50 dark:hover:bg-slate-700 cursor-pointer text-sm font-semibold text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700 last:border-0 transition-colors"
                                                 >
                                                     {suggestion.description}
                                                 </div>
@@ -453,33 +453,33 @@ export function ModernTripPlanner() {
 
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Date</label>
+                                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">Date</label>
                                     <div className="relative group">
                                         <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                         <input
                                             type="date"
                                             value={cabDate}
                                             onChange={(e) => setCabDate(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         />
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Time</label>
+                                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">Time</label>
                                     <div className="relative group">
                                         <Clock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                         <input
                                             type="time"
                                             value={cabTime}
                                             onChange={(e) => setCabTime(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-slate-100">
+                        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
                             <button
                                 onClick={handleCabSearch}
                                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] flex items-center justify-center space-x-2"
@@ -493,12 +493,12 @@ export function ModernTripPlanner() {
 
                 {/* Find Trains Card */}
                 {features.trains && (
-                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col transition-transform hover:-translate-y-1 duration-300">
+                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 flex flex-col transition-transform hover:-translate-y-1 duration-300">
                         <div className="flex items-center space-x-3 mb-8">
-                            <div className="p-3 bg-blue-50 rounded-2xl">
+                            <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-2xl">
                                 <Train className="w-6 h-6 text-blue-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900">Find Trains</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Find Trains</h3>
                         </div>
 
                         <div className="space-y-5 flex-grow">
@@ -511,12 +511,12 @@ export function ModernTripPlanner() {
                                         value={trainFrom}
                                         onChange={(e) => setTrainFrom(e.target.value)}
                                         onFocus={() => setActiveField('trainFrom')}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         placeholder="Origin"
                                     />
                                     {/* Suggestions Dropdown */}
                                     {showSuggestions && activeField === 'trainFrom' && suggestions.length > 0 && (
-                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-100 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
+                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
                                             {suggestions.map((suggestion) => (
                                                 <div
                                                     key={suggestion.place_id}
@@ -525,7 +525,7 @@ export function ModernTripPlanner() {
                                                         setSuggestions([]);
                                                         setShowSuggestions(false);
                                                     }}
-                                                    className="p-3 hover:bg-blue-50 cursor-pointer text-sm font-semibold text-slate-700 border-b border-slate-50 last:border-0 transition-colors"
+                                                    className="p-3 hover:bg-blue-50 dark:hover:bg-slate-700 cursor-pointer text-sm font-semibold text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700 last:border-0 transition-colors"
                                                 >
                                                     {suggestion.description}
                                                 </div>
@@ -544,12 +544,12 @@ export function ModernTripPlanner() {
                                         value={trainTo}
                                         onChange={(e) => setTrainTo(e.target.value)}
                                         onFocus={() => setActiveField('trainTo')}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         placeholder="Destination"
                                     />
                                     {/* Suggestions Dropdown */}
                                     {showSuggestions && activeField === 'trainTo' && suggestions.length > 0 && (
-                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-100 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
+                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
                                             {suggestions.map((suggestion) => (
                                                 <div
                                                     key={suggestion.place_id}
@@ -558,7 +558,7 @@ export function ModernTripPlanner() {
                                                         setSuggestions([]);
                                                         setShowSuggestions(false);
                                                     }}
-                                                    className="p-3 hover:bg-blue-50 cursor-pointer text-sm font-semibold text-slate-700 border-b border-slate-50 last:border-0 transition-colors"
+                                                    className="p-3 hover:bg-blue-50 dark:hover:bg-slate-700 cursor-pointer text-sm font-semibold text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700 last:border-0 transition-colors"
                                                 >
                                                     {suggestion.description}
                                                 </div>
@@ -588,7 +588,7 @@ export function ModernTripPlanner() {
                                     <select
                                         value={trainPassengers}
                                         onChange={(e) => setTrainPassengers(Number(e.target.value))}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all appearance-none"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all appearance-none"
                                     >
                                         {[1, 2, 3, 4, 5, 6].map(num => <option key={num} value={num}>{num} Passenger{num > 1 ? 's' : ''}</option>)}
                                     </select>
@@ -596,7 +596,7 @@ export function ModernTripPlanner() {
                             </div>
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-slate-100">
+                        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
                             <button
                                 onClick={handleTrainSearch}
                                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] flex items-center justify-center space-x-2"
@@ -610,26 +610,26 @@ export function ModernTripPlanner() {
 
                 {/* Rent Bike & Car Card */}
                 {features.rentals && (
-                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col transition-transform hover:-translate-y-1 duration-300">
+                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 flex flex-col transition-transform hover:-translate-y-1 duration-300">
                         <div className="flex items-center space-x-3 mb-8">
-                            <div className="p-3 bg-blue-50 rounded-2xl">
+                            <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-2xl">
                                 {rentalType === 'car' ? <Car className="w-6 h-6 text-blue-600" /> : <Bike className="w-6 h-6 text-blue-600" />}
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900">Rent {rentalType === 'car' ? 'Car' : 'Bike'}</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Rent {rentalType === 'car' ? 'Car' : 'Bike'}</h3>
                         </div>
 
                         <div className="space-y-5 flex-grow">
                             {/* Vehicle Type Toggle */}
-                            <div className="flex bg-slate-100 p-1 rounded-lg w-fit">
+                            <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg w-fit">
                                 <button
                                     onClick={() => setRentalType("car")}
-                                    className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${rentalType === "car" ? "bg-white text-blue-600 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                                    className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${rentalType === "car" ? "bg-white dark:bg-slate-700 text-blue-600 shadow-sm" : "text-slate-500 dark:text-slate-400 hover:text-slate-700"}`}
                                 >
                                     Car
                                 </button>
                                 <button
                                     onClick={() => setRentalType("bike")}
-                                    className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${rentalType === "bike" ? "bg-white text-blue-600 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                                    className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${rentalType === "bike" ? "bg-white dark:bg-slate-700 text-blue-600 shadow-sm" : "text-slate-500 dark:text-slate-400 hover:text-slate-700"}`}
                                 >
                                     Bike
                                 </button>
@@ -644,12 +644,12 @@ export function ModernTripPlanner() {
                                         value={rentalLocation}
                                         onChange={(e) => setRentalLocation(e.target.value)}
                                         onFocus={() => setActiveField('rental')}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         placeholder="City or Area"
                                     />
                                     {/* Suggestions Dropdown */}
                                     {showSuggestions && activeField === 'rental' && suggestions.length > 0 && (
-                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-100 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
+                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
                                             {suggestions.map((suggestion) => (
                                                 <div
                                                     key={suggestion.place_id}
@@ -658,7 +658,7 @@ export function ModernTripPlanner() {
                                                         setSuggestions([]);
                                                         setShowSuggestions(false);
                                                     }}
-                                                    className="p-3 hover:bg-blue-50 cursor-pointer text-sm font-semibold text-slate-700 border-b border-slate-50 last:border-0 transition-colors"
+                                                    className="p-3 hover:bg-blue-50 dark:hover:bg-slate-700 cursor-pointer text-sm font-semibold text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700 last:border-0 transition-colors"
                                                 >
                                                     {suggestion.description}
                                                 </div>
@@ -683,33 +683,33 @@ export function ModernTripPlanner() {
 
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Pickup Time</label>
+                                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">Pickup Time</label>
                                     <div className="relative group">
                                         <Clock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                         <input
                                             type="time"
                                             value={pickupTime}
                                             onChange={(e) => setPickupTime(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         />
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Drop-off Time</label>
+                                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">Drop-off Time</label>
                                     <div className="relative group">
                                         <Clock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                         <input
                                             type="time"
                                             value={dropoffTime}
                                             onChange={(e) => setDropoffTime(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-slate-100">
+                        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
                             <button
                                 onClick={handleRentalSearch}
                                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] flex items-center justify-center space-x-2"
@@ -723,12 +723,12 @@ export function ModernTripPlanner() {
 
                 {/* Book Cruises Card */}
                 {features.cruises && (
-                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col transition-transform hover:-translate-y-1 duration-300">
+                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 flex flex-col transition-transform hover:-translate-y-1 duration-300">
                         <div className="flex items-center space-x-3 mb-8">
-                            <div className="p-3 bg-blue-50 rounded-2xl">
+                            <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-2xl">
                                 <Ship className="w-6 h-6 text-blue-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900">Book Cruises</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Book Cruises</h3>
                         </div>
 
                         <div className="space-y-5 flex-grow">
@@ -741,12 +741,12 @@ export function ModernTripPlanner() {
                                         value={cruiseLocation}
                                         onChange={(e) => setCruiseLocation(e.target.value)}
                                         onFocus={() => setActiveField('cruise')}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         placeholder="Where do you want to go?"
                                     />
                                     {/* Suggestions Dropdown */}
                                     {showSuggestions && activeField === 'cruise' && suggestions.length > 0 && (
-                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-100 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
+                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
                                             {suggestions.map((suggestion) => (
                                                 <div
                                                     key={suggestion.place_id}
@@ -755,7 +755,7 @@ export function ModernTripPlanner() {
                                                         setSuggestions([]);
                                                         setShowSuggestions(false);
                                                     }}
-                                                    className="p-3 hover:bg-blue-50 cursor-pointer text-sm font-semibold text-slate-700 border-b border-slate-50 last:border-0 transition-colors"
+                                                    className="p-3 hover:bg-blue-50 dark:hover:bg-slate-700 cursor-pointer text-sm font-semibold text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700 last:border-0 transition-colors"
                                                 >
                                                     {suggestion.description}
                                                 </div>
@@ -779,7 +779,7 @@ export function ModernTripPlanner() {
                             </div>
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-slate-100">
+                        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
                             <button
                                 onClick={handleCruiseSearch}
                                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] flex items-center justify-center space-x-2"
@@ -793,12 +793,12 @@ export function ModernTripPlanner() {
 
                 {/* Rent Villas Card */}
                 {features.villas && (
-                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col transition-transform hover:-translate-y-1 duration-300">
+                    <div className="min-w-[85vw] md:min-w-[400px] lg:min-w-[380px] snap-center bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 flex flex-col transition-transform hover:-translate-y-1 duration-300">
                         <div className="flex items-center space-x-3 mb-8">
-                            <div className="p-3 bg-blue-50 rounded-2xl">
+                            <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-2xl">
                                 <Home className="w-6 h-6 text-blue-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900">Rent Villas & Flats</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Rent Villas & Flats</h3>
                         </div>
 
                         <div className="space-y-5 flex-grow">
@@ -811,12 +811,12 @@ export function ModernTripPlanner() {
                                         value={villaLocation}
                                         onChange={(e) => setVillaLocation(e.target.value)}
                                         onFocus={() => setActiveField('villa')}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         placeholder="City or Area"
                                     />
                                     {/* Suggestions Dropdown */}
                                     {showSuggestions && activeField === 'villa' && suggestions.length > 0 && (
-                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-100 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
+                                        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
                                             {suggestions.map((suggestion) => (
                                                 <div
                                                     key={suggestion.place_id}
@@ -825,7 +825,7 @@ export function ModernTripPlanner() {
                                                         setSuggestions([]);
                                                         setShowSuggestions(false);
                                                     }}
-                                                    className="p-3 hover:bg-blue-50 cursor-pointer text-sm font-semibold text-slate-700 border-b border-slate-50 last:border-0 transition-colors"
+                                                    className="p-3 hover:bg-blue-50 dark:hover:bg-slate-700 cursor-pointer text-sm font-semibold text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700 last:border-0 transition-colors"
                                                 >
                                                     {suggestion.description}
                                                 </div>
@@ -837,26 +837,26 @@ export function ModernTripPlanner() {
 
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Check In</label>
+                                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">Check In</label>
                                     <div className="relative group">
                                         <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                         <input
                                             type="date"
                                             value={villaCheckIn}
                                             onChange={(e) => setVillaCheckIn(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         />
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Check Out</label>
+                                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1">Check Out</label>
                                     <div className="relative group">
                                         <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                                         <input
                                             type="date"
                                             value={villaCheckOut}
                                             onChange={(e) => setVillaCheckOut(e.target.value)}
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                                         />
                                     </div>
                                 </div>
@@ -869,7 +869,7 @@ export function ModernTripPlanner() {
                                     <select
                                         value={villaGuests}
                                         onChange={(e) => setVillaGuests(Number(e.target.value))}
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all appearance-none"
+                                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-11 pr-4 font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all appearance-none"
                                     >
                                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => <option key={num} value={num}>{num} Guest{num > 1 ? 's' : ''}</option>)}
                                     </select>
@@ -877,7 +877,7 @@ export function ModernTripPlanner() {
                             </div>
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-slate-100">
+                        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
                             <button
                                 onClick={handleVillaSearch}
                                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] flex items-center justify-center space-x-2"

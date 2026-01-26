@@ -2,6 +2,7 @@
 import { siteConfig } from "@/config/siteConfig";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { ChatBot } from "@/components/shared/ChatBot";
 
 const HERO_IMAGES = [
     "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop",
@@ -64,6 +65,8 @@ export function ModernHero() {
                     </button>
                 </div>
             </div>
+            {/* ChatBot */}
+            <ChatBot />
         </section>
     );
 }

@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   description: siteConfig.description || "Best deals on flights, hotels, and holiday packages.",
 };
 
+import { playfairExtraBold } from "@/fonts/font";
+
+// ... existing imports
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -39,7 +43,7 @@ export default function RootLayout({
           `
         }} />
       </head>
-      <body className={cn(inter.className, playfair.variable, "min-h-screen flex flex-col bg-background font-sans antialiased")} suppressHydrationWarning>
+      <body className={cn(inter.className, playfair.variable, playfairExtraBold.variable, "min-h-screen flex flex-col bg-background font-sans antialiased")} suppressHydrationWarning>
         <Providers>
           <Header />
           <main className="flex-1">

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Plane, Package, Calendar, Globe, Bot, Shield, Save, Layout, CheckCircle, Palette, Moon, Sun, Monitor, ExternalLink, Settings, Ship, Home, Train, Car, Sparkles } from 'lucide-react';
+import { Plane, Package, Calendar, Globe, Bot, Shield, Save, Layout, CheckCircle, Palette, Moon, Sun, Monitor, ExternalLink, Settings, Ship, Home, Train, Car, Sparkles, User, Plus, Users, ChevronDown } from 'lucide-react';
 import { LayoutSelector } from './LayoutStyle/LayoutSelector';
 import Lottie from 'lottie-react';
 import backgroundAnimation from './asset/Background looping animation.json';
@@ -19,6 +19,7 @@ export default function SuperAdminDashboard() {
     theme: 'light',
     layout: 'classic',
     heroImage: '',
+    adminUserId: '',
     features: {
       flights: true,
       packages: true,
@@ -31,8 +32,14 @@ export default function SuperAdminDashboard() {
       cruises: true,
       villas: true,
       news: true,
-    }
+    },
+    contact: { phone: '', email: '', address: '' },
+    social: { twitter: '', facebook: '', instagram: '', linkedin: '' },
+    content: { aboutUs: '', career: '', blog: '' }
   });
+
+  const [admins, setAdmins] = useState<any[]>([]);
+  const [showAdminDropdown, setShowAdminDropdown] = useState(false);
 
   const [logoFile, setLogoFile] = useState<File | null>(null);
   const [status, setStatus] = useState<'idle' | 'saving' | 'success' | 'error'>('idle');
@@ -100,12 +107,28 @@ export default function SuperAdminDashboard() {
       const data = new FormData();
       data.append('name', formData.name);
       data.append('description', formData.description);
+      data.append('adminUserId', formData.adminUserId || '');
       data.append('logoPath', formData.logo);
       data.append('primaryColor', formData.primaryColor);
       data.append('theme', formData.theme);
       data.append('layout', formData.layout);
       data.append('heroImage', formData.heroImage);
       data.append('features', JSON.stringify(formData.features));
+
+      // Append Contact, Social, and Content
+      data.append('contact_phone', formData.contact?.phone || '');
+      data.append('contact_email', formData.contact?.email || '');
+      data.append('contact_address', formData.contact?.address || '');
+
+      data.append('social_twitter', formData.social?.twitter || '');
+      data.append('social_facebook', formData.social?.facebook || '');
+      data.append('social_instagram', formData.social?.instagram || '');
+      data.append('social_linkedin', formData.social?.linkedin || '');
+
+      data.append('content_aboutUs', formData.content?.aboutUs || '');
+      data.append('content_career', formData.content?.career || '');
+      data.append('content_blog', formData.content?.blog || '');
+
       if (logoFile) {
         data.append('logoFile', logoFile);
       }
@@ -119,6 +142,56 @@ export default function SuperAdminDashboard() {
 
       setStatus('success');
       setTimeout(() => setStatus('idle'), 3000);
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+    }
+  };
+
+  const handleSaveAndNavigate = async (url: string) => {
+    setStatus('saving');
+    try {
+      const data = new FormData();
+      data.append('name', formData.name);
+      data.append('description', formData.description);
+      data.append('adminUserId', formData.adminUserId || '');
+      data.append('logoPath', formData.logo);
+      data.append('primaryColor', formData.primaryColor);
+      data.append('theme', formData.theme);
+      data.append('layout', formData.layout);
+      data.append('heroImage', formData.heroImage);
+      data.append('features', JSON.stringify(formData.features));
+
+      // Append Contact, Social, and Content (Same as handleSubmit)
+      data.append('contact_phone', formData.contact?.phone || '');
+      data.append('contact_email', formData.contact?.email || '');
+      data.append('contact_address', formData.contact?.address || '');
+
+      data.append('social_twitter', formData.social?.twitter || '');
+      data.append('social_facebook', formData.social?.facebook || '');
+      data.append('social_instagram', formData.social?.instagram || '');
+      data.append('social_linkedin', formData.social?.linkedin || '');
+
+      data.append('content_aboutUs', formData.content?.aboutUs || '');
+      data.append('content_career', formData.content?.career || '');
+      data.append('content_blog', formData.content?.blog || '');
+
+      if (logoFile) {
+        data.append('logoFile', logoFile);
+      }
+
+      const response = await fetch('/api/config', {
+        method: 'POST',
+        body: data
+      });
+
+      if (!response.ok) throw new Error('Failed to update');
+
+      setStatus('success');
+      setTimeout(() => setStatus('idle'), 3000);
+
+      // Navigate after successful save
+      window.open(url, '_blank');
     } catch (error) {
       console.error(error);
       setStatus('error');
@@ -219,6 +292,189 @@ export default function SuperAdminDashboard() {
           transition={{ delay: 0.3 }}
           className="grid gap-6"
         >
+          {/* Admin Assignment Section */}
+          <div className={`rounded-xl p-6 ${dashboardTheme === 'dark' ? 'bg-[#13131a] border border-white/5' : 'bg-white border border-gray-200 shadow-sm'}`}>
+            <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center space-x-2">
+                <div className={`p-1.5 rounded-lg ${dashboardTheme === 'dark' ? 'bg-purple-500/10' : 'bg-purple-100'}`}>
+                  <User className={`w-4 h-4 ${dashboardTheme === 'dark' ? 'text-purple-400' : 'text-purple-600'}`} />
+                </div>
+                <h2 className={`text-lg font-semibold ${dashboardTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Admin Assignment</h2>
+              </div>
+
+              {/* Admin Management Buttons */}
+              <div className="flex items-center space-x-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const newId = `admin_${Date.now().toString(36)}`;
+                    setFormData(prev => ({
+                      ...prev,
+                      adminUserId: newId,
+                      name: 'New Travel Site',
+                      description: 'A new adventure begins here.',
+                      features: {
+                        flights: true,
+                        packages: true,
+                        hotels: true,
+                        trains: true,
+                        cabs: true,
+                        rentals: true,
+                        cars: false,
+                        aiPlanner: true,
+                        cruises: true,
+                        villas: true,
+                        news: true,
+                      }
+                    }));
+                  }}
+                  className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${dashboardTheme === 'dark' ? 'bg-green-500/10 text-green-400 hover:bg-green-500/20' : 'bg-green-100 text-green-700 hover:bg-green-200'}`}
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>New Admin</span>
+                </button>
+
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      if (!showAdminDropdown) {
+                        try {
+                          const res = await fetch('/api/superadmin/assign');
+                          const data = await res.json();
+                          if (data.success) {
+                            setAdmins(data.data);
+                          }
+                        } catch (e) {
+                          console.error("Failed to fetch admins", e);
+                        }
+                      }
+                      setShowAdminDropdown(!showAdminDropdown);
+                    }}
+                    className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${dashboardTheme === 'dark' ? 'bg-blue-500/10 text-blue-400 hover:bg-blue-500/20' : 'bg-blue-100 text-blue-700 hover:bg-blue-200'}`}
+                  >
+                    <Users className="w-3.5 h-3.5" />
+                    <span>Existing Admin</span>
+                    <ChevronDown className={`w-3 h-3 transition-transform ${showAdminDropdown ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {/* Dropdown Menu */}
+                  {showAdminDropdown && (
+                    <div className={`absolute right-0 top-full mt-2 w-64 rounded-xl shadow-xl border z-50 overflow-hidden ${dashboardTheme === 'dark' ? 'bg-[#1a1a24] border-white/10' : 'bg-white border-gray-200'}`}>
+                      <div className="max-h-60 overflow-y-auto">
+                        {admins.length > 0 ? (
+                          admins.map((admin: any) => (
+                            <button
+                              key={admin.adminId}
+                              type="button"
+                              onClick={async () => {
+                                const newConfig = {
+                                  ...formData,
+                                  adminUserId: admin.adminId,
+                                  name: admin.companyDetails?.name || formData.name,
+                                  description: admin.companyDetails?.description || formData.description,
+                                  logo: admin.companyDetails?.logoUrl || formData.logo,
+                                  theme: admin.theme?.mode || formData.theme,
+                                  layout: admin.theme?.layout || formData.layout,
+                                  primaryColor: admin.theme?.primaryColor || formData.primaryColor,
+                                  features: { ...formData.features, ...admin.features },
+
+                                  // Populate nested fields from Admin Object
+                                  contact: {
+                                    phone: admin.contact?.phone || '',
+                                    email: admin.contact?.email || '',
+                                    address: admin.contact?.address || ''
+                                  },
+                                  social: {
+                                    twitter: admin.social?.twitter || '',
+                                    facebook: admin.social?.facebook || '',
+                                    instagram: admin.social?.instagram || '',
+                                    linkedin: admin.social?.linkedin || ''
+                                  },
+                                  content: {
+                                    aboutUs: admin.content?.aboutUs || '',
+                                    career: admin.content?.career || '',
+                                    blog: admin.content?.blog || ''
+                                  }
+                                };
+
+                                setFormData(newConfig);
+                                setShowAdminDropdown(false);
+
+                                // Auto-save / Switch Context immediately
+                                setStatus('saving');
+                                try {
+                                  const data = new FormData();
+                                  data.append('name', newConfig.name);
+                                  data.append('description', newConfig.description);
+                                  data.append('adminUserId', newConfig.adminUserId || '');
+                                  data.append('logoPath', newConfig.logo);
+                                  data.append('primaryColor', newConfig.primaryColor);
+                                  data.append('theme', newConfig.theme);
+                                  data.append('layout', newConfig.layout);
+                                  data.append('heroImage', newConfig.heroImage);
+                                  data.append('features', JSON.stringify(newConfig.features));
+                                  // Note: logoFile is stateful, we assume file isn't changing just by switching admin unless user uploads one. 
+                                  // If they switch admin, we likely want to keep the current logoFile null unless they picked one.
+
+                                  // Append Contact, Social, Content for auto-save
+                                  data.append('contact_phone', newConfig.contact.phone);
+                                  data.append('contact_email', newConfig.contact.email);
+                                  data.append('contact_address', newConfig.contact.address);
+
+                                  data.append('social_twitter', newConfig.social.twitter);
+                                  data.append('social_facebook', newConfig.social.facebook);
+                                  data.append('social_instagram', newConfig.social.instagram);
+                                  data.append('social_linkedin', newConfig.social.linkedin);
+
+                                  data.append('content_aboutUs', newConfig.content.aboutUs);
+                                  data.append('content_career', newConfig.content.career);
+                                  data.append('content_blog', newConfig.content.blog);
+
+                                  await fetch('/api/config', {
+                                    method: 'POST',
+                                    body: data
+                                  });
+                                  setStatus('success');
+                                  setTimeout(() => setStatus('idle'), 2000);
+                                } catch (err) {
+                                  console.error("Failed to auto-switch admin", err);
+                                  setStatus('error');
+                                }
+                              }}
+                              className={`w-full text-left px-4 py-3 text-sm hover:bg-purple-500/10 transition-colors flex items-center justify-between group ${dashboardTheme === 'dark' ? 'text-slate-300 hover:text-white border-b border-white/5 last:border-0' : 'text-gray-700 hover:text-gray-900 border-b border-gray-100 last:border-0'}`}
+                            >
+                              <div className="flex flex-col">
+                                <span className="font-medium">{admin.companyDetails?.name || 'Unnamed Site'}</span>
+                                <span className="text-xs opacity-60">{admin.adminId}</span>
+                              </div>
+                              {formData.adminUserId === admin.adminId && <CheckCircle className="w-4 h-4 text-purple-500" />}
+                            </button>
+                          ))
+                        ) : (
+                          <div className={`p-4 text-center text-xs ${dashboardTheme === 'dark' ? 'text-slate-500' : 'text-gray-500'}`}>
+                            No admins found
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <label className={`text-xs font-medium uppercase tracking-wide ${dashboardTheme === 'dark' ? 'text-slate-500' : 'text-gray-600'}`}>Admin User ID</label>
+              <input
+                type="text"
+                value={formData?.adminUserId || ''}
+                onChange={(e) => setFormData({ ...formData, adminUserId: e.target.value })}
+                className={`w-full rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-purple-500/50 transition-all ${dashboardTheme === 'dark' ? 'bg-[#1a1a24] border border-white/5 text-white placeholder:text-slate-600' : 'bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400'}`}
+                placeholder="Enter User ID of Admin"
+              />
+            </div>
+          </div>
+
           {/* Brand Identity Section */}
           <div className={`rounded-xl p-6 ${dashboardTheme === 'dark' ? 'bg-[#13131a] border border-white/5' : 'bg-white border border-gray-200 shadow-sm'}`}>
             <div className="flex items-center space-x-2 mb-5">
@@ -434,7 +690,7 @@ export default function SuperAdminDashboard() {
           {/* Action Buttons */}
           <div className="flex justify-center items-center gap-3 pt-2">
             <a
-              href="http://localhost:3001"
+              href="http://localhost:3003"
               target="_blank"
               rel="noopener noreferrer"
               className={`flex items-center space-x-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all ${dashboardTheme === 'dark' ? 'bg-white/5 border border-white/10 hover:bg-white/10 text-white' : 'bg-white border border-gray-300 hover:bg-gray-50 text-gray-900 shadow-sm'}`}
@@ -442,6 +698,14 @@ export default function SuperAdminDashboard() {
               <ExternalLink className="w-4 h-4" />
               <span>Preview</span>
             </a>
+            <button
+              type="button"
+              onClick={() => handleSaveAndNavigate('http://localhost:3002/admin/dashboard')}
+              className={`flex items-center space-x-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all ${dashboardTheme === 'dark' ? 'bg-white/5 border border-white/10 hover:bg-white/10 text-white' : 'bg-white border border-gray-300 hover:bg-gray-50 text-gray-900 shadow-sm'}`}
+            >
+              <Settings className="w-4 h-4" />
+              <span>Admin Dashboard</span>
+            </button>
             <button
               type="submit"
               disabled={status === 'saving'}
@@ -465,7 +729,7 @@ export default function SuperAdminDashboard() {
               ) : (
                 <>
                   <Save className="w-4 h-4" />
-                  <span>Create Website</span>
+                  <span>Create Website & App</span>
                 </>
               )}
             </button>
@@ -531,21 +795,18 @@ export default function SuperAdminDashboard() {
 
 function FeatureCard({ icon: Icon, label, active, onClick, onCustomize, disabled = false, dashboardTheme = 'dark' }: any) {
   return (
-    <div className={`
-      group relative flex items-center justify-between p-3 rounded-lg border transition-all cursor-pointer
+    <div
+      onClick={!disabled ? onClick : undefined}
+      className={`
+      group relative flex items-center justify-between p-3 rounded-lg border transition-all cursor-pointer select-none
       ${disabled
-        ? `opacity-50 cursor-not-allowed ${dashboardTheme === 'dark' ? 'border-white/5 bg-[#1a1a24]' : 'border-gray-200 bg-gray-50'}`
-        : active
-          ? 'border-purple-500/30 bg-purple-500/10'
-          : dashboardTheme === 'dark'
-            ? 'border-white/5 bg-[#1a1a24] hover:bg-white/5'
-            : 'border-gray-200 bg-white hover:bg-gray-50'}\n    `}>
-      <button
-        type="button"
-        onClick={onClick}
-        disabled={disabled}
-        className="flex items-center flex-1 outline-none"
-      >
+          ? `opacity-50 cursor-not-allowed ${dashboardTheme === 'dark' ? 'border-white/5 bg-[#1a1a24]' : 'border-gray-200 bg-gray-50'}`
+          : active
+            ? 'border-purple-500/30 bg-purple-500/10'
+            : dashboardTheme === 'dark'
+              ? 'border-white/5 bg-[#1a1a24] hover:bg-white/5'
+              : 'border-gray-200 bg-white hover:bg-gray-50'}\n    `}>
+      <div className="flex items-center flex-1">
         <div className={`
           p-2 rounded-lg mr-3 transition-colors
           ${active
@@ -559,15 +820,15 @@ function FeatureCard({ icon: Icon, label, active, onClick, onCustomize, disabled
           <div className={`text-sm font-medium ${active ? 'text-white' : dashboardTheme === 'dark' ? 'text-slate-300' : 'text-gray-900'}`}>{label}</div>
           <div className={`text-xs mt-0.5 ${dashboardTheme === 'dark' ? 'text-slate-500' : 'text-gray-500'}`}>{active ? 'Enabled' : 'Disabled'}</div>
         </div>
-      </button>
+      </div>
 
       {/* Toggle indicator */}
       <div className={`
-        w-9 h-5 rounded-full transition-colors flex-shrink-0
+        relative w-9 h-5 rounded-full transition-colors flex-shrink-0
         ${active ? 'bg-purple-500' : dashboardTheme === 'dark' ? 'bg-white/10' : 'bg-gray-300'}\n      `}>
         <div className={`
-          w-4 h-4 rounded-full bg-white transition-transform mt-0.5
-          ${active ? 'translate-x-4 ml-0.5' : 'translate-x-0.5'}\n        `} />
+          absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white transition-transform shadow-sm
+          ${active ? 'translate-x-4' : 'translate-x-0'}\n        `} />
       </div>
     </div>
   );

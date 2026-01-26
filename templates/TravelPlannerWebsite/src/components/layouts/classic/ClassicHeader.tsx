@@ -14,11 +14,15 @@ export function ClassicHeader() {
         <>
             <header className="py-6 border-b border-gray-200">
                 <div className="container mx-auto flex justify-between items-center px-4">
-                    <div className="flex items-center space-x-2">
+                    {/* Left: Logo/Brand */}
+                    <div className="flex-1 flex justify-start">
                         <Link href="/" className="flex items-center gap-2">
+                            {/* Placeholder logic for logo if needed later, currently just text as requested but aligned to corner */}
                             <span className="text-2xl font-serif font-bold tracking-tight text-black dark:text-white">{siteConfig.name}</span>
                         </Link>
                     </div>
+
+                    {/* Center: Navigation */}
                     <nav className="hidden md:flex space-x-8 font-serif italic text-lg text-gray-600 dark:text-gray-300">
                         {siteConfig.features.flights && (
                             <Link href="/flights" className="hover:text-black dark:hover:text-white hover:underline">Flight</Link>
@@ -40,8 +44,9 @@ export function ClassicHeader() {
                         )}
                         <Link href="/news" className="hover:text-black dark:hover:text-white hover:underline">News</Link>
                     </nav>
-                    <div className="hidden md:flex items-center space-x-4">
-                        <button className="px-6 py-2 bg-black dark:bg-white text-white dark:text-black font-serif italic rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition">Book Now</button>
+
+                    {/* Right: Actions */}
+                    <div className="flex-1 flex justify-end items-center space-x-4">
                         {session?.user ? (
                             <div className="flex items-center space-x-4">
                                 <div className="flex items-center space-x-2">

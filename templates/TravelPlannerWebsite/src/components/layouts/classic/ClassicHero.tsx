@@ -2,6 +2,7 @@
 import { siteConfig } from "@/config/siteConfig";
 import { cn } from "@/lib/utils";
 import { Plane, BedDouble, Map, ArrowRight, Train, Car, Bike, Ship, Home } from "lucide-react";
+import { ChatBot } from "@/components/shared/ChatBot";
 
 interface LayoutProps {
     activeTab: string;
@@ -184,6 +185,8 @@ export function ClassicHero({ activeTab, setActiveTab, showFlights, showHotels, 
                     </div>
                 </div>
             </div>
+            {/* ChatBot */}
+            <ChatBot />
         </section>
     );
 }

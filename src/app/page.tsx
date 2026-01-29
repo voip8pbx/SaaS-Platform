@@ -341,9 +341,18 @@ export default function SuperAdminDashboard() {
                       if (!showAdminDropdown) {
                         try {
                           const res = await fetch('/api/superadmin/assign');
-                          const data = await res.json();
-                          if (data.success) {
-                            setAdmins(data.data);
+                          const contentType = res.headers.get("content-type");
+                          if (contentType && contentType.indexOf("application/json") !== -1) {
+                            const data = await res.json();
+                            if (data.success) {
+                              setAdmins(data.data);
+                            } else {
+                              console.error("API returned error:", data.error);
+                            }
+                          } else {
+                            const text = await res.text();
+                            console.error("API returned non-JSON response:", res.status, text);
+                            // If it's a 404 or 500 HTML page, this will log it
                           }
                         } catch (e) {
                           console.error("Failed to fetch admins", e);

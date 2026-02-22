@@ -32,11 +32,11 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
+    "build-main/types/**/*.ts",
+    "build-main/dev/types/**/*.ts",
     "**/*.mts",
-    ".next-admin/types/**/*.ts",
-    ".next-admin/dev/types/**/*.ts"
+    "build-admin/types/**/*.ts",
+    "build-admin/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

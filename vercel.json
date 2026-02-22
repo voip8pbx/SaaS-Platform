@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "framework": "nextjs",
+    "build": {
+        "env": {
+            "DIST_DIR": ".next"
+        }
+    },
+    "rewrites": [
+        {
+            "source": "/(admin|client|api)/:path*",
+            "destination": "/:path*"
+        }
+    ]
+}

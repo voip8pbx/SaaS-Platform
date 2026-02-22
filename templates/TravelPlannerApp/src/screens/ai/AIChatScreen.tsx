@@ -20,7 +20,7 @@ import { ArrowLeft, Send, Mic, MicOff, Bot, User } from 'lucide-react-native';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 
-const OPENROUTER_API_KEY = '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';
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || '';
 
 interface Message {
     id: string;

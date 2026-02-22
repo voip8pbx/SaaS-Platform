@@ -1,0 +1,5 @@
+{
+  "/api/config/route": "app/api/config/route.js",
+  "/api/superadmin/assign/route": "app/api/superadmin/assign/route.js",
+  "/page": "app/page.js"
+}

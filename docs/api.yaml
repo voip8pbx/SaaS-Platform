@@ -1,0 +1,537 @@
+openapi: 3.0.3
+info:
+  title: SaaS Travel Planner API
+  description: |
+    Full API reference for the SaaS Travel Planner Platform.
+    This covers the SuperAdmin, Admin, and Mobile (Android App) endpoints.
+
+    ## Authentication
+    Most endpoints require a `Bearer` JWT token in the Authorization header.
+    Obtain tokens from `/api/mobile/login` or via NextAuth for web dashboards.
+
+    ## Tenant Isolation
+    All data is scoped by `adminId`. Every admin manages their own users and bookings.
+  version: 1.0.0
+  contact:
+    name: SaaS Platform Support
+    url: https://github.com/voip8pbx/SaaS-Platform
+
+servers:
+  - url: https://your-domain.vercel.app
+    description: Production
+  - url: http://localhost:3001
+    description: Local Development
+
+security:
+  - BearerAuth: []
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+          enum: [customer, agent]
+        adminId:
+          type: string
+
+    Booking:
+      type: object
+      properties:
+        _id:
+          type: string
+        bookingRef:
+          type: string
+        type:
+          type: string
+          enum: [flight, hotel, train, cab, rental, villa, cruise, package]
+        status:
+          type: string
+          enum: [pending, confirmed, cancelled, completed]
+        amount:
+          type: number
+        currency:
+          type: string
+        paymentStatus:
+          type: string
+          enum: [unpaid, paid, refunded]
+        createdAt:
+          type: string
+          format: date-time
+
+    Admin:
+      type: object
+      properties:
+        adminId:
+          type: string
+        companyDetails:
+          type: object
+          properties:
+            name:
+              type: string
+            logoUrl:
+              type: string
+            description:
+              type: string
+        features:
+          type: object
+        theme:
+          type: object
+        isActive:
+          type: boolean
+
+paths:
+  # ─── PUBLIC MOBILE ENDPOINTS ───────────────────────────────────────────────
+
+  /api/mobile/register:
+    post:
+      tags: [Mobile Auth]
+      summary: Register a new user
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, email, password, adminId]
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+                  minLength: 8
+                contactNumber:
+                  type: string
+                adminId:
+                  type: string
+      responses:
+        "201":
+          description: Registration successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  token:
+                    type: string
+                  user:
+                    $ref: "#/components/schemas/User"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "409":
+          description: User already exists
+
+  /api/mobile/login:
+    post:
+      tags: [Mobile Auth]
+      summary: Login and obtain JWT token
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password, adminId]
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                adminId:
+                  type: string
+      responses:
+        "200":
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  token:
+                    type: string
+                  user:
+                    $ref: "#/components/schemas/User"
+        "401":
+          description: Invalid credentials
+
+  /api/mobile/auth:
+    post:
+      tags: [Mobile Auth]
+      summary: Google Sign-In sync
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, adminId]
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                photoUrl:
+                  type: string
+                adminId:
+                  type: string
+                googleId:
+                  type: string
+      responses:
+        "200":
+          description: User synced
+
+  /api/mobile/site-config:
+    get:
+      tags: [Mobile Public]
+      summary: Get site configuration for mobile app
+      security: []
+      parameters:
+        - in: query
+          name: adminId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Site configuration
+        "404":
+          description: Config not found
+
+  /api/mobile/profile:
+    get:
+      tags: [Mobile Profile]
+      summary: Get current user profile
+      responses:
+        "200":
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+    patch:
+      tags: [Mobile Profile]
+      summary: Update user profile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                contactNumber:
+                  type: string
+      responses:
+        "200":
+          description: Updated profile
+
+  /api/mobile/bookings:
+    get:
+      tags: [Mobile Bookings]
+      summary: List user's bookings
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          schema:
+            type: integer
+        - in: query
+          name: status
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of bookings
+    post:
+      tags: [Mobile Bookings]
+      summary: Create a new booking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [type, details, amount, passengerInfo, travelDates]
+              properties:
+                type:
+                  type: string
+                  enum:
+                    [flight, hotel, train, cab, rental, villa, cruise, package]
+                details:
+                  type: object
+                amount:
+                  type: number
+                currency:
+                  type: string
+                passengerInfo:
+                  type: array
+                  items:
+                    type: object
+                travelDates:
+                  type: object
+                  properties:
+                    from:
+                      type: string
+                      format: date
+                    to:
+                      type: string
+                      format: date
+      responses:
+        "201":
+          description: Booking created
+
+  /api/mobile/bookings/{id}:
+    get:
+      tags: [Mobile Bookings]
+      summary: Get a booking by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Booking details
+    patch:
+      tags: [Mobile Bookings]
+      summary: Cancel a booking
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum: [cancelled]
+      responses:
+        "200":
+          description: Updated booking
+
+  # ─── ADMIN ENDPOINTS ───────────────────────────────────────────────────────
+
+  /api/admin/dashboard:
+    get:
+      tags: [Admin]
+      summary: Get admin dashboard stats
+      parameters:
+        - in: query
+          name: adminId
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Dashboard statistics
+
+  /api/admin/users:
+    get:
+      tags: [Admin]
+      summary: List users for an admin
+      parameters:
+        - in: query
+          name: adminId
+          schema:
+            type: string
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          schema:
+            type: integer
+        - in: query
+          name: search
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Users list
+
+  /api/admin/bookings:
+    get:
+      tags: [Admin]
+      summary: List all bookings for an admin
+      parameters:
+        - in: query
+          name: adminId
+          schema:
+            type: string
+        - in: query
+          name: status
+          schema:
+            type: string
+        - in: query
+          name: type
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Bookings list
+    patch:
+      tags: [Admin]
+      summary: Update booking status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: string
+                status:
+                  type: string
+                paymentStatus:
+                  type: string
+      responses:
+        "200":
+          description: Updated booking
+
+  /api/admin/subscription:
+    get:
+      tags: [Admin]
+      summary: Get subscription for an admin
+      responses:
+        "200":
+          description: Subscription details
+    post:
+      tags: [Admin, SuperAdmin]
+      summary: Create or update a subscription (SuperAdmin only)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [adminId, plan]
+              properties:
+                adminId:
+                  type: string
+                plan:
+                  type: string
+                  enum: [free, starter, pro, enterprise]
+                status:
+                  type: string
+                seats:
+                  type: integer
+                periodEndDays:
+                  type: integer
+      responses:
+        "200":
+          description: Subscription updated
+
+  # ─── SUPERADMIN ENDPOINTS ──────────────────────────────────────────────────
+
+  /api/superadmin/assign:
+    get:
+      tags: [SuperAdmin]
+      summary: List all admin configurations
+      responses:
+        "200":
+          description: Admin list
+    post:
+      tags: [SuperAdmin]
+      summary: Assign features and theme to an admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [adminId]
+              properties:
+                adminId:
+                  type: string
+                features:
+                  type: object
+                theme:
+                  type: object
+      responses:
+        "200":
+          description: Admin updated
+
+  /api/superadmin/analytics:
+    get:
+      tags: [SuperAdmin]
+      summary: Platform-wide analytics
+      responses:
+        "200":
+          description: Analytics data
+
+  /api/config:
+    get:
+      tags: [Config]
+      summary: Get site config for the template website
+      parameters:
+        - in: query
+          name: adminId
+          schema:
+            type: string
+      security: []
+      responses:
+        "200":
+          description: Site configuration
+    post:
+      tags: [Config]
+      summary: Update site configuration
+      responses:
+        "200":
+          description: Config updated
+
+  /api/generate-ai:
+    post:
+      tags: [AI]
+      summary: Generate website configuration using AI
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [prompt]
+              properties:
+                prompt:
+                  type: string
+      responses:
+        "200":
+          description: Generated configuration

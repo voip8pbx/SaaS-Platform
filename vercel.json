@@ -1,15 +1,52 @@
 {
     "version": 2,
     "framework": "nextjs",
-    "build": {
-        "env": {
-            "DIST_DIR": ".next"
-        }
-    },
+    "buildCommand": "npm run build",
+    "outputDirectory": ".next",
     "rewrites": [
         {
-            "source": "/(admin|client|api)/:path*",
-            "destination": "/:path*"
+            "source": "/admin/:path*",
+            "destination": "/admin/:path*"
+        },
+        {
+            "source": "/client/:path*",
+            "destination": "/client/:path*"
+        },
+        {
+            "source": "/api/:path*",
+            "destination": "/api/:path*"
         }
-    ]
+    ],
+    "headers": [
+        {
+            "source": "/api/(.*)",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                },
+                {
+                    "key": "Access-Control-Allow-Methods",
+                    "value": "GET,POST,PATCH,DELETE,OPTIONS"
+                },
+                {
+                    "key": "Access-Control-Allow-Headers",
+                    "value": "Content-Type, Authorization"
+                },
+                {
+                    "key": "X-Content-Type-Options",
+                    "value": "nosniff"
+                },
+                {
+                    "key": "X-Frame-Options",
+                    "value": "DENY"
+                }
+            ]
+        }
+    ],
+    "functions": {
+        "src/app/api/**/*.ts": {
+            "maxDuration": 30
+        }
+    }
 }

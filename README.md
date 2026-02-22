@@ -88,7 +88,7 @@ d:/NEXT.js/
     ```bash
     cd SuperAdmin
     npm install
-    npm run dev
+    npm run dev:all
     # Runs on http://localhost:3000
     ```
 
@@ -97,7 +97,7 @@ d:/NEXT.js/
     ```bash
     cd ../Travelpannerwebsite
     npm install
-    npm run dev
+    npm run dev:all
     # Runs on http://localhost:3001
     ```
 

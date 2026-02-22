@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1087360020532",
+    "project_id": "templateapp-e7ffd",
+    "storage_bucket": "templateapp-e7ffd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087360020532:android:188f3f3f801ebf4f615a61",
+        "android_client_info": {
+          "package_name": "com.superadminapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087360020532-ioen42t4mgqd08864gtpge49pasmps5v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVajaLKyfHvPS3DNLOlnHIM0fnY-3vuqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087360020532-ioen42t4mgqd08864gtpge49pasmps5v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

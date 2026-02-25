@@ -16,6 +16,8 @@ coverage
 # next.js
 .next/
 out/
+build-main/
+build-admin/
 
 # production
 build

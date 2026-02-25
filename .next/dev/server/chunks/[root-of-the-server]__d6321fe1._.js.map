@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///D:/NEXT.js/SuperAdmin/src/app/api/hello/route.ts"],"sourcesContent":["\r\nimport { NextResponse } from 'next/server';\r\n\r\nexport async function GET() {\r\n    return NextResponse.json({ message: 'Hello from API' });\r\n}\r\n"],"names":[],"mappings":";;;;AACA;;AAEO,eAAe;IAClB,OAAO,gJAAY,CAAC,IAAI,CAAC;QAAE,SAAS;IAAiB;AACzD"}}]
-}

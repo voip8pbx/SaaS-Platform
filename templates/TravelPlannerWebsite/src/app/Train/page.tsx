@@ -105,7 +105,10 @@ function TrainBookingContent() {
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pb-20">
             {/* Hero / Search Section */}
             <div className="bg-blue-600 dark:bg-blue-900 pb-32 pt-20 px-4 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+                <div
+                    className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay"
+                    style={{ backgroundImage: "url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&q=80')" }}
+                ></div>
                 <div className="container mx-auto relative z-10 text-center">
                     <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">Find Your Train</h1>
                     <p className="text-blue-100 text-lg max-w-2xl mx-auto">Seamless train bookings across the country. Choose from thousands of routes and travel in comfort.</p>

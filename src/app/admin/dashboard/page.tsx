@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Save, CheckCircle, Mail, Phone, MapPin, Twitter, Facebook, Instagram, Linkedin, FileText, Globe, Moon, Sun, Shield, ExternalLink } from 'lucide-react';
 import Lottie from 'lottie-react';
-import backgroundAnimation from '../../asset/Background looping animation.json';
+import backgroundAnimation from '../asset/Background looping animation.json';
 
 export default function AdminDashboard() {
     const [dashboardTheme, setDashboardTheme] = useState<'dark' | 'light'>('dark');

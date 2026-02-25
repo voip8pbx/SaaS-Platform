@@ -35,7 +35,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 onClose();
             } else {
                 // Register flow
-                const res = await fetch('/api/client/auth/register", {
+                const res = await fetch('/api/client/auth/register', {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data),

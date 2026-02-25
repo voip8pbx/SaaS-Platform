@@ -1,14 +1,14 @@
 export const siteConfig = {
-    name: "yayaya",
-    adminUserId: "admin456",
-    description: "yoyoyoyoyyoyo",
-    logo: "/uploads/logo-1769412461002.png",
+    name: "My Travel Site",
+    adminUserId: "",
+    description: "The best way to plan your next adventure.",
+    logo: "/uploads/logo-1769536776822.png",
     primaryColor: "#8b5cf6",
     customColors: {
         background: "",
         header: ""
     },
-    theme: "dark",
+    theme: "light",
     layout: "classic",
     heroImage: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop",
     features: {
@@ -25,9 +25,9 @@ export const siteConfig = {
         news: true
     },
     contact: {
-        phone: "88888888",
-        email: "lalalala@gmsil.com",
-        address: "55fgvctxcchv"
+        phone: "+1 (555) 123-4567",
+        email: "support@travelpanner.com",
+        address: "123 Travel Street, Cloud City, TC 90210"
     },
     social: {
         twitter: "https://twitter.com/travelpanner",

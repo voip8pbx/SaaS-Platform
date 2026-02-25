@@ -1,0 +1,4 @@
+{
+  "/admin/dashboard/page": "app/admin/dashboard/page.js",
+  "/api/config/route": "app/api/config/route.js"
+}

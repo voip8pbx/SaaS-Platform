@@ -1,0 +1,5 @@
+[00:00:03.097] Server  LOG     ✓ Ready in 2.3s
+[00:13:41.802] Server  LOG     ○ Compiling /admin/dashboard ...
+[00:13:47.625] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:48.980] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
+[00:13:48.980] Server  LOG     [GET Config] Extracted adminUserId: ""

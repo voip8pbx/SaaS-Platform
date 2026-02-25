@@ -1,0 +1,8 @@
+[00:00:03.097] Server  LOG     ✓ Ready in 2.3s
+[00:03:51.052] Server  LOG     ○ Compiling / ...
+[00:03:55.154] Server  LOG     ○ Compiling /admin ...
+[00:03:58.101] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:36.511] Server  LOG     [POST Config] Incoming FormData Keys: ["name","description","adminUserId","logoPath","primaryColor","theme","layout","heroImage","features","contact_phone","contact_email","contact_address","social_twitter","social_facebook","social_instagram","social_linkedin","content_aboutUs","content_career","content_blog"]
+[00:13:36.514] Server  LOG     [POST Config] adminUserId from FormData: ""
+[00:13:36.515] Server  LOG     [POST Config] Processing update for adminUserId: ""
+[00:13:36.518] Server  LOG     Config Update - Received Features: {}

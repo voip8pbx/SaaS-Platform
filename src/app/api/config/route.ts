@@ -88,14 +88,21 @@ export async function POST(req: NextRequest) {
             // Save to Template's public folder
             const uploadDir = path.join(process.cwd(), 'templates', 'TravelPlannerWebsite', 'public', 'uploads');
 
-            if (!fs.existsSync(uploadDir)) {
-                fs.mkdirSync(uploadDir, { recursive: true });
+            try {
+                if (!fs.existsSync(uploadDir)) {
+                    fs.mkdirSync(uploadDir, { recursive: true });
+                }
+
+                const filePath = path.join(uploadDir, fileName);
+                fs.writeFileSync(filePath, buffer);
+
+                logoUrl = `/uploads/${fileName}`;
+            } catch (e) {
+                console.warn('Failed to save logo file (likely read-only filesystem on Vercel):', e);
+                // On Vercel, this will fail. Ideally, logo should be uploaded to S3 or similar.
+                // We'll keep the previous logoUrl if this fails.
+                logoUrl = getExisting('logo');
             }
-
-            const filePath = path.join(uploadDir, fileName);
-            fs.writeFileSync(filePath, buffer);
-
-            logoUrl = `/uploads/${fileName}`;
         } else if (!logoUrl) {
             logoUrl = getExisting('logo');
         }
@@ -165,7 +172,11 @@ export async function POST(req: NextRequest) {
 export type SiteConfig = typeof siteConfig;
 `;
 
-        fs.writeFileSync(targetPath, fileContent, 'utf-8');
+        try {
+            fs.writeFileSync(targetPath, fileContent, 'utf-8');
+        } catch (e) {
+            console.warn('Failed to save siteConfig.ts to disk (likely read-only filesystem on Vercel). Using DB as source of truth.', e);
+        }
 
         // Save to MongoDB
         try {

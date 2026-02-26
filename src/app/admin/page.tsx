@@ -707,14 +707,16 @@ export default function SuperAdminDashboard() {
               <ExternalLink className="w-4 h-4" />
               <span>Preview</span>
             </a>
-            <button
-              type="button"
-              onClick={() => handleSaveAndNavigate(process.env.NEXT_PUBLIC_ADMIN_URL || 'https://saas-platform-admindashboard.vercel.app/admin/dashboard')}
+            ```tsx
+            <a
+              href={process.env.NEXT_PUBLIC_ADMIN_URL || "https://saas-platform-admindashboard.vercel.app/"}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`flex items-center space-x-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all ${dashboardTheme === 'dark' ? 'bg-white/5 border border-white/10 hover:bg-white/10 text-white' : 'bg-white border border-gray-300 hover:bg-gray-50 text-gray-900 shadow-sm'}`}
             >
               <Settings className="w-4 h-4" />
               <span>Admin Dashboard</span>
-            </button>
+            </a>
             <button
               type="submit"
               disabled={status === 'saving'}

@@ -17,11 +17,12 @@ const handler = NextAuth({
                     // Sync user with SuperAdmin backend
                     const { siteConfig } = await import('@/config/siteConfig');
 
-                    // Note: In production, use env variable for API URL or improved service discovery
-                    // Using localhost mapping: 
-                    // From inside docker/server to host might differ, but for local npm run dev they share network usually.
-                    // If this runs on server side (Next.js), it can access localhost:3001 if on same machine.
-                    const API_URL = 'http://localhost:3001/api/mobile/auth';
+                    // Use environment variable for production, fallback to localhost for dev
+                    const domain = process.env.NEXT_PUBLIC_ROOT_DOMAIN || 'localhost:3001';
+                    const protocol = process.env.NEXT_PUBLIC_ROOT_DOMAIN ? 'https' : 'http';
+                    const API_URL = process.env.NEXT_PUBLIC_ROOT_DOMAIN
+                        ? `${protocol}://admin.${domain}/api/mobile/auth`
+                        : `http://localhost:3001/api/mobile/auth`;
 
                     await fetch(API_URL, {
                         method: 'POST',

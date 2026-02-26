@@ -30,15 +30,15 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "build-main/types/**/*.ts",
-    "build-main/dev/types/**/*.ts",
-    "**/*.mts",
-    "build-admin/types/**/*.ts",
-    "build-admin/dev/types/**/*.ts"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "templates",
+    "build-main",
+    "build-admin",
+    ".next"
   ]
 }

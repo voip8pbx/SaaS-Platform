@@ -13,7 +13,7 @@ if (!OPENROUTER_API_KEY) {
         const possiblePaths = [
             path.join(process.cwd(), '.env.local'),
             path.join(process.cwd(), '../..', '.env.local'),
-            'd:\\NEXT.js\\SuperAdmin\\.env.local' // Absolute fallback
+            path.join(process.cwd(), '.env'),
         ];
 
         for (const p of possiblePaths) {
@@ -43,9 +43,9 @@ export async function POST(req: Request) {
 
         // List of free models to try in order of preference/reliability
         // We use multiple fallbacks to ensure high availability
-        const MODELS_TO_TRY = [  
+        const MODELS_TO_TRY = [
             "openchat/openchat-7b:free",
-            
+
         ];
 
         for (const model of MODELS_TO_TRY) {

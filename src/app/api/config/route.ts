@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
         console.log("[POST Config] adminUserId from FormData:", formData.get('adminUserId'));
 
         // Read existing file content first to support partial updates (preservation)
-        const targetPath = 'd:\\NEXT.js\\SuperAdmin\\templates\\TravelPlannerWebsite\\src\\config\\siteConfig.ts';
+        const targetPath = path.join(process.cwd(), 'templates', 'TravelPlannerWebsite', 'src', 'config', 'siteConfig.ts');
         let existingContent = '';
         if (fs.existsSync(targetPath)) {
             try {
@@ -85,7 +85,7 @@ export async function POST(req: NextRequest) {
             const buffer = Buffer.from(await logoFile.arrayBuffer());
             const fileName = `logo-${Date.now()}${path.extname(logoFile.name)}`;
             // Save to Template's public folder
-            const uploadDir = 'd:\\NEXT.js\\SuperAdmin\\templates\\TravelPlannerWebsite\\public\\uploads';
+            const uploadDir = path.join(process.cwd(), 'templates', 'TravelPlannerWebsite', 'public', 'uploads');
 
             if (!fs.existsSync(uploadDir)) {
                 fs.mkdirSync(uploadDir, { recursive: true });
@@ -232,7 +232,7 @@ export type SiteConfig = typeof siteConfig;
 
 export async function GET() {
     try {
-        const targetPath = 'd:\\NEXT.js\\SuperAdmin\\templates\\TravelPlannerWebsite\\src\\config\\siteConfig.ts';
+        const targetPath = path.join(process.cwd(), 'templates', 'TravelPlannerWebsite', 'src', 'config', 'siteConfig.ts');
         if (!fs.existsSync(targetPath)) {
             return NextResponse.json({ success: false, error: 'Config file not found' }, { status: 404 });
         }

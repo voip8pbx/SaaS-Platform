@@ -1,4 +1,4 @@
-import { Flight } from "@/types/client/flight";
+import { Flight } from "@/lib/client/flightTypes";
 
 const DUFFEL_API_KEY = process.env.DUFFEL_API_KEY;
 const DUFFEL_API_URL = process.env.DUFFEL_API_URL || "https://api.duffel.com/air/offer_requests";

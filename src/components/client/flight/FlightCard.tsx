@@ -1,12 +1,14 @@
 "use client";
 import { Plane } from "lucide-react";
 import { format } from "date-fns";
-import { Flight } from "@/types/client/flight";
 import { useState } from "react";
+import { Flight } from "@/lib/client/flightTypes";
 
 interface FlightCardProps {
     flight: Flight;
 }
+
+
 
 export function FlightCard({ flight }: FlightCardProps) {
     return (

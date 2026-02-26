@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Flight } from "@/types/client/flight";
+import { Flight } from "@/lib/client/flightTypes";
 import { FlightCard } from "@/components/client/flight/FlightCard";
 import { cn } from "@/lib/client/utils";
 import { SlidersHorizontal, ChevronDown, Check, Clock } from "lucide-react";

@@ -341,7 +341,7 @@ export default function AdminDashboard() {
                     {/* Action Buttons */}
                     <div className="flex justify-center items-center gap-4 pt-4">
                         <a
-                            href="http://localhost:3003"
+                            href={process.env.NEXT_PUBLIC_TEMPLATE_SITE_URL || "http://localhost:3003"}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold text-sm transition-all ${dashboardTheme === 'dark' ? 'bg-white/5 border border-white/10 hover:bg-white/10 text-white' : 'bg-white border border-gray-300 hover:bg-gray-50 text-gray-900 shadow-sm'}`}
@@ -378,7 +378,7 @@ export default function AdminDashboard() {
                         </button>
                     </div>
                 </motion.form>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }

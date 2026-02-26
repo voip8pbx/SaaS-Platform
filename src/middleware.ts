@@ -24,6 +24,11 @@ export function middleware(request: NextRequest) {
 
     // 2. Routing logic based on subdomain
 
+    // Skip middleware for API routes and static assets (redundant but safe)
+    if (url.pathname.startsWith('/api') || url.pathname.startsWith('/_next')) {
+        return NextResponse.next();
+    }
+
     // If subdomain is 'superadmin' -> Route to /admin (SuperAdmin dashboard)
     if (subdomain === 'superadmin') {
         // Prevent infinite loop if already on /admin
@@ -42,7 +47,8 @@ export function middleware(request: NextRequest) {
             return NextResponse.rewrite(url);
         }
         // For other paths, map to /admin/dashboard if they don't already start with it
-        if (!url.pathname.startsWith('/admin/dashboard') && !url.pathname.startsWith('/api')) {
+        // Note: API is already handled above
+        if (!url.pathname.startsWith('/admin/dashboard')) {
             url.pathname = `/admin/dashboard${url.pathname}`;
             return NextResponse.rewrite(url);
         }
@@ -54,7 +60,7 @@ export function middleware(request: NextRequest) {
             url.pathname = '/client';
             return NextResponse.rewrite(url);
         }
-        if (!url.pathname.startsWith('/client') && !url.pathname.startsWith('/api') && !url.pathname.startsWith('/admin')) {
+        if (!url.pathname.startsWith('/client') && !url.pathname.startsWith('/admin')) {
             url.pathname = `/client${url.pathname}`;
             return NextResponse.rewrite(url);
         }

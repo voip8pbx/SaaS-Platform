@@ -13,6 +13,7 @@ export const revalidate = 0;
 
 export async function POST(req: NextRequest) {
     try {
+        await dbConnect(); // Ensure DB is connected first
         const formData = await req.formData() as any;
         console.log("[POST Config] Incoming FormData Keys:", [...formData.keys()]);
         console.log("[POST Config] adminUserId from FormData:", formData.get('adminUserId'));
@@ -232,6 +233,7 @@ export type SiteConfig = typeof siteConfig;
 
 export async function GET() {
     try {
+        await dbConnect(); // Ensure DB is connected first
         const targetPath = path.join(process.cwd(), 'templates', 'TravelPlannerWebsite', 'src', 'config', 'siteConfig.ts');
         if (!fs.existsSync(targetPath)) {
             return NextResponse.json({ success: false, error: 'Config file not found' }, { status: 404 });
@@ -365,4 +367,15 @@ export async function GET() {
         console.error('Error reading config:', error);
         return NextResponse.json({ success: false, error: 'Failed to read configuration' }, { status: 500 });
     }
+}
+
+export async function OPTIONS() {
+    return new NextResponse(null, {
+        status: 200,
+        headers: {
+            'Allow': 'GET, POST, OPTIONS',
+            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        },
+    });
 }

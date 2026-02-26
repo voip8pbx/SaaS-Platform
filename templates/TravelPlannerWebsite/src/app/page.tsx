@@ -1,3 +1,4 @@
+"use client";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { DealsSection } from "@/components/ui/DealsSection";
 import { NewsSection } from "@/components/ui/NewsSection";
@@ -6,6 +7,13 @@ import { siteConfig } from "@/config/siteConfig";
 import { ModernHome } from "@/components/layouts/modern/ModernHome";
 
 export default function Home() {
+  console.log("Rendering Home Page, siteConfig:", siteConfig);
+
+  // Fallback for missing siteConfig
+  if (!siteConfig) {
+    return <div className="p-10 text-center">Config loading... If you see this, siteConfig is null.</div>;
+  }
+
   // If modern layout is selected, render the specific ModernHome component structure
   if (siteConfig.layout === 'modern') {
     return <ModernHome />;

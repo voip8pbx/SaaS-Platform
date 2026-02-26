@@ -699,7 +699,7 @@ export default function SuperAdminDashboard() {
           {/* Action Buttons */}
           <div className="flex justify-center items-center gap-3 pt-2">
             <a
-              href={process.env.NEXT_PUBLIC_TEMPLATE_SITE_URL || "http://localhost:3003"}
+              href={process.env.NEXT_PUBLIC_TEMPLATE_SITE_URL || "https://travel-planner-template.vercel.app"}
               target="_blank"
               rel="noopener noreferrer"
               className={`flex items-center space-x-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all ${dashboardTheme === 'dark' ? 'bg-white/5 border border-white/10 hover:bg-white/10 text-white' : 'bg-white border border-gray-300 hover:bg-gray-50 text-gray-900 shadow-sm'}`}
@@ -709,7 +709,7 @@ export default function SuperAdminDashboard() {
             </a>
             <button
               type="button"
-              onClick={() => handleSaveAndNavigate(process.env.NEXT_PUBLIC_ADMIN_URL || 'http://localhost:3002/admin/dashboard')}
+              onClick={() => handleSaveAndNavigate(process.env.NEXT_PUBLIC_ADMIN_URL || 'https://saas-platform-admindashboard.vercel.app/admin/dashboard')}
               className={`flex items-center space-x-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all ${dashboardTheme === 'dark' ? 'bg-white/5 border border-white/10 hover:bg-white/10 text-white' : 'bg-white border border-gray-300 hover:bg-gray-50 text-gray-900 shadow-sm'}`}
             >
               <Settings className="w-4 h-4" />

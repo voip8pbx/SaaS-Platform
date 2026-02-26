@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+templates/TravelPlannerApp
+templates/TravelPlannerWebsite
+build-main
+build-admin
+out
+public/uploads
+docs
+scripts

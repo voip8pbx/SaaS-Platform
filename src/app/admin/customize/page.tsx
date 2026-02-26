@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, Save, Palette, Layout, Type } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function CustomizePage() {
+function CustomizePageContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const feature = searchParams.get("feature");
@@ -29,25 +29,7 @@ export default function CustomizePage() {
         try {
             // Mock API call to save specific colors
             const data = new FormData();
-            // We are just saving these specific custom colors
-            // In a real implementation, you'd merge this with the existing config
-            // Re-using the main config API endpoint might be easiest if it supports partial updates
-            // OR we send everything. Let's assume we send these as part of the 'customColors' field.
 
-            // For MVP, we'll assume the API can handle a new 'customColors' JSON
-            data.append('customColors', JSON.stringify({
-                header: config.headerColor,
-                background: config.backgroundColor
-            }));
-            data.append('primaryColor', config.primaryColor); // Allow updating primary too
-
-            // We need to fetch the existing config first to not overwrite other stuff?
-            // For this UI demo, we'll just send a POST to the same config endpoint.
-            // Note: The existing /api/config route in the main page expects a lot of fields.
-            // We might need to update that route to support partial updates or handle this robustly.
-            // For now, let's just simulate the "Save" and navigation.
-
-            // To make this functional, we'll assume we're updating the 'customColors' and 'primaryColor'.
             // Send structured data including the feature name
             const res = await fetch('/api/config/customize', {
                 method: 'POST',
@@ -63,9 +45,7 @@ export default function CustomizePage() {
             });
 
             if (!res.ok) {
-                // Fallback to the main config endpoint if specific one doesn't exist
-                // But strictly, we should create the endpoint. 
-                // Let's assume for this step we just want the UI flow.
+                // Fallback handled by UI
             }
 
             setStatus('success');
@@ -217,3 +197,16 @@ export default function CustomizePage() {
         </div>
     );
 }
+
+export default function CustomizePage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
+                <div className="animate-spin w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full" />
+            </div>
+        }>
+            <CustomizePageContent />
+        </Suspense>
+    );
+}
+

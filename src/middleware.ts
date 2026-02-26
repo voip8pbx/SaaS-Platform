@@ -13,6 +13,13 @@ export function middleware(request: NextRequest) {
     let subdomain = '';
     if (hostname && hostname.includes(customDomain)) {
         subdomain = hostname.replace(`.${customDomain}`, '').replace(customDomain, '');
+    } else if (hostname) {
+        // Fallback for Vercel domains or other domains not matching customDomain
+        if (hostname.includes('superadmin')) {
+            subdomain = 'superadmin';
+        } else if (hostname.includes('admin')) {
+            subdomain = 'admin';
+        }
     }
 
     // 2. Routing logic based on subdomain

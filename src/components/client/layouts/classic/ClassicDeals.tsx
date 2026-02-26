@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getPackages } from "@/app/packages/page";
+import { getPackages } from "@/app/client/packages/page";
 
 export async function ClassicDeals() {
     const packages = await getPackages();

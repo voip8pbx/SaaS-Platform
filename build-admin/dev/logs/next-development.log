@@ -1,6 +1,53 @@
-[00:00:04.692] Server  LOG     ✓ Ready in 3.6s
-[00:02:46.009] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:02:46.011] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:02:46.056] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:46.971] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:02:47.386] Server  LOG     [GET Config] DB Result found: true "admin456"
+[00:00:03.637] Server  LOG     
+[00:00:03.637] Server  LOG       We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+[00:00:03.638] Server  LOG       The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+[00:00:03.638] Server  LOG       	- include was updated to add 'build-admin/types/**/*.ts'
+[00:00:03.638] Server  LOG       	- include was updated to add 'build-admin/dev/types/**/*.ts'
+[00:00:03.638] Server  LOG     
+[00:00:03.762] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:04.257] Server  LOG     ✓ Ready in 2.8s
+[00:01:52.794] Server  LOG     ○ Compiling /client ...
+[00:02:04.369] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:04.370] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="layout" pagePath="client/lay...">
+                        <SegmentTrieNode>
+                        <link>
+                        <script>
+                        <script>
+                        <script>
+                        <RootLayout>
+                          <html lang="en" suppressHydrationWarning={true} className="dark">
+                            <head>
+                              <style
+                                dangerouslySetInnerHTML={{
++                                 __html: "\n            :root {\n              --primary: #8b5cf6;\n              --r..."
+-                                 __html: "@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 6..."
+                                }}
+                              >
+                            ...
+                    ...
+        ...
+
+[00:02:06.499] Browser ERROR   Failed to load Lottie: {}

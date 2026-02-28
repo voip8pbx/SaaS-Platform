@@ -1,179 +1,132 @@
-[00:00:04.693] Server  LOG     ✓ Ready in 3.6s
-[00:00:22.018] Server  LOG     ○ Compiling /admin ...
-[00:00:23.959] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:18.322] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:01:18.323] Server  LOG     [GET Config] Extracted adminUserId: ""
-[00:01:27.008] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:01:27.008] Server  LOG     [GET Config] Extracted adminUserId: ""
-[00:01:37.019] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:01:37.019] Server  LOG     [GET Config] Extracted adminUserId: ""
-[00:01:41.606] Server  LOG     [Assign API] Fetching all admins...
-[00:01:41.669] Server  LOG     [Assign API] Found 4 admins.
-[00:01:42.823] Server  LOG     [POST Config] Incoming FormData Keys: ["name","description","adminUserId","logoPath","primaryColor","theme","layout","heroImage","features","contact_phone","contact_email","contact_address","social_twitter","social_facebook","social_instagram","social_linkedin","content_aboutUs","content_career","content_blog"]
-[00:01:42.823] Server  LOG     [POST Config] adminUserId from FormData: "admin456"
-[00:01:42.824] Server  LOG     [POST Config] Processing update for adminUserId: "admin456"
-[00:01:42.825] Server  LOG     Config Update - Received Features: {}
-[00:01:47.041] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:01:47.042] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:01:47.042] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:01:47.106] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:01:47.258] Server  LOG     [POST Config] Incoming FormData Keys: ["name","description","adminUserId","logoPath","primaryColor","theme","layout","heroImage","features","contact_phone","contact_email","contact_address","social_twitter","social_facebook","social_instagram","social_linkedin","content_aboutUs","content_career","content_blog"]
-[00:01:47.259] Server  LOG     [POST Config] adminUserId from FormData: "admin456"
-[00:01:47.260] Server  LOG     [POST Config] Processing update for adminUserId: "admin456"
-[00:01:47.261] Server  LOG     Config Update - Received Features: {}
-[00:01:57.024] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:01:57.024] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:01:57.025] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:01:57.073] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:01:57.372] Server  LOG     [POST Config] Incoming FormData Keys: ["name","description","adminUserId","logoPath","primaryColor","theme","layout","heroImage","features","contact_phone","contact_email","contact_address","social_twitter","social_facebook","social_instagram","social_linkedin","content_aboutUs","content_career","content_blog"]
-[00:01:57.372] Server  LOG     [POST Config] adminUserId from FormData: "admin456"
-[00:01:57.373] Server  LOG     [POST Config] Processing update for adminUserId: "admin456"
-[00:01:57.374] Server  LOG     Config Update - Received Features: {}
-[00:02:03.177] Server  LOG     [POST Config] Incoming FormData Keys: ["name","description","adminUserId","logoPath","primaryColor","theme","layout","heroImage","features","contact_phone","contact_email","contact_address","social_twitter","social_facebook","social_instagram","social_linkedin","content_aboutUs","content_career","content_blog"]
-[00:02:03.178] Server  LOG     [POST Config] adminUserId from FormData: "admin456"
-[00:02:03.178] Server  LOG     [POST Config] Processing update for adminUserId: "admin456"
-[00:02:03.179] Server  LOG     Config Update - Received Features: {}
-[00:02:07.034] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:02:07.034] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:02:07.035] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:02:07.097] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:02:17.038] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:02:17.038] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:02:17.039] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:02:17.100] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:02:23.424] Server  LOG     [POST Config] Incoming FormData Keys: ["name","description","adminUserId","logoPath","primaryColor","theme","layout","heroImage","features","contact_phone","contact_email","contact_address","social_twitter","social_facebook","social_instagram","social_linkedin","content_aboutUs","content_career","content_blog"]
-[00:02:23.424] Server  LOG     [POST Config] adminUserId from FormData: "admin456"
-[00:02:23.426] Server  LOG     [POST Config] Processing update for adminUserId: "admin456"
-[00:02:23.426] Server  LOG     Config Update - Received Features: {}
-[00:02:27.054] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:02:27.054] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:02:27.055] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:02:27.128] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:02:37.067] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:02:37.067] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:02:37.068] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:02:37.121] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:02:41.319] Server  LOG     [POST Config] Incoming FormData Keys: ["name","description","adminUserId","logoPath","primaryColor","theme","layout","heroImage","features","contact_phone","contact_email","contact_address","social_twitter","social_facebook","social_instagram","social_linkedin","content_aboutUs","content_career","content_blog"]
-[00:02:41.319] Server  LOG     [POST Config] adminUserId from FormData: "admin456"
-[00:02:41.320] Server  LOG     [POST Config] Processing update for adminUserId: "admin456"
-[00:02:41.321] Server  LOG     Config Update - Received Features: {}
-[00:02:47.057] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:02:47.057] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:02:47.058] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:02:47.110] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:02:57.066] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:02:57.066] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:02:57.067] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:02:57.131] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:03:07.079] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:03:07.079] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:03:07.080] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:03:07.142] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:03:17.082] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:03:17.082] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:03:17.083] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:03:17.141] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:03:27.089] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:03:27.090] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:03:27.090] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:03:27.150] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:03:37.100] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:03:37.100] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:03:37.101] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:03:37.161] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:03:47.095] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:03:47.095] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:03:47.096] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:03:47.158] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:03:57.121] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:03:57.122] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:03:57.122] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:03:57.178] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:04:07.126] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:04:07.126] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:04:07.127] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:04:07.186] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:04:17.120] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:04:17.120] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:04:17.121] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:04:17.166] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:04:27.142] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:04:27.142] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:04:27.142] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:04:27.198] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:04:37.147] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:04:37.148] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:04:37.148] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:04:37.217] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:04:47.150] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:04:47.150] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:04:47.150] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:04:47.200] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:04:57.168] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:04:57.168] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:04:57.168] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:04:57.219] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:05:07.179] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:05:07.179] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:05:07.179] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:05:07.254] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:05:17.174] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:05:17.174] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:05:17.175] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:05:17.224] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:05:27.192] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:05:27.193] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:05:27.193] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:05:27.245] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:05:37.189] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:05:37.190] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:05:37.190] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:05:37.278] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:05:47.207] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:05:47.208] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:05:47.208] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:05:47.285] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:05:57.211] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:05:57.211] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:05:57.212] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:05:57.293] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:06:07.214] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:06:07.214] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:06:07.214] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:06:07.258] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:06:17.219] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:06:17.220] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:06:17.220] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:06:17.293] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:06:27.244] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:06:27.244] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:06:27.245] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:06:27.298] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:06:37.243] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:06:37.243] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:06:37.243] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:06:37.309] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:06:47.246] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:06:47.247] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:06:47.247] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:06:47.321] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:06:57.253] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:06:57.253] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:06:57.254] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:06:57.318] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:07:07.264] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:07:07.264] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:07:07.265] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:07:07.326] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:07:17.272] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:07:17.273] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:07:17.273] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:07:17.360] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:07:27.288] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:07:27.288] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:07:27.289] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:07:27.348] Server  LOG     [GET Config] DB Result found: true "admin456"
-[00:07:37.306] Server  LOG     [GET Config] Reading config from: d:\NEXT.js\SuperAdmin\templates\TravelPlannerWebsite\src\config\siteConfig.ts
-[00:07:37.306] Server  LOG     [GET Config] Extracted adminUserId: "admin456"
-[00:07:37.306] Server  LOG     [GET Config] Querying DB for: "admin456"
-[00:07:37.392] Server  LOG     [GET Config] DB Result found: true "admin456"
+[00:00:03.775] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:04.253] Server  LOG     ✓ Ready in 2.8s
+[00:00:07.819] Server  LOG     ○ Compiling /client ...
+[00:00:12.612] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:12.612] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="layout" pagePath="client/lay...">
+                        <SegmentTrieNode>
+                        <link>
+                        <script>
+                        <script>
+                        <script>
+                        <RootLayout>
+                          <html lang="en" suppressHydrationWarning={true} className="dark">
+                            <head>
+                              <style
+                                dangerouslySetInnerHTML={{
++                                 __html: "\n            :root {\n              --primary: #8b5cf6;\n              --r..."
+-                                 __html: "@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 6..."
+                                }}
+                              >
+                            ...
+                    ...
+        ...
+
+[00:00:14.124] Browser ERROR   Failed to load Lottie: {}
+[00:01:10.121] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:10.443] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="layout" pagePath="client/lay...">
+                        <SegmentTrieNode>
+                        <link>
+                        <script>
+                        <script>
+                        <script>
+                        <RootLayout>
+                          <html lang="en" suppressHydrationWarning={true} className="dark">
+                            <head>
+                              <style
+                                dangerouslySetInnerHTML={{
++                                 __html: "\n            :root {\n              --primary: #8b5cf6;\n              --r..."
+-                                 __html: "@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 6..."
+                                }}
+                              >
+                            ...
+                    ...
+        ...
+
+[00:01:10.722] Browser ERROR   Failed to load Lottie: {}
+[00:01:29.790] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:30.118] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="layout" pagePath="client/lay...">
+                        <SegmentTrieNode>
+                        <link>
+                        <script>
+                        <script>
+                        <script>
+                        <RootLayout>
+                          <html lang="en" suppressHydrationWarning={true} className="dark">
+                            <head>
+                              <style
+                                dangerouslySetInnerHTML={{
++                                 __html: "\n            :root {\n              --primary: #8b5cf6;\n              --r..."
+-                                 __html: "@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 6..."
+                                }}
+                              >
+                            ...
+                    ...
+        ...
+
+[00:01:30.337] Browser ERROR   Failed to load Lottie: {}

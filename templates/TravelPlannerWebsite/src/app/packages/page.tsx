@@ -2,7 +2,7 @@ import { PackageCard } from "@/components/packages/PackageCard";
 import { siteConfig } from "@/config/siteConfig";
 import { cn } from "@/lib/utils";
 
-export async function getPackages() {
+async function getPackages() {
     return [
         {
             id: "PKG001",

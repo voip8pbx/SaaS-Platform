@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { PackageCard } from "@/components/packages/PackageCard";
-import { getPackages } from "@/app/packages/page";
+import { getPackages } from "@/lib/package-service";
 import { siteConfig } from "@/config/siteConfig";
 
 interface Package {

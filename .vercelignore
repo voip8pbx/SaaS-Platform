@@ -3,6 +3,6 @@ node_modules
 .git
 templates/TravelPlannerApp
 out
-public/uploads
+# public/uploads (Removed to fix logo 404)
 docs
 scripts

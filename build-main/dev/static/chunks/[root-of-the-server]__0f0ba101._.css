@@ -1227,6 +1227,10 @@
     min-height: 160px;
   }
 
+  .min-h-\[400px\] {
+    min-height: 400px;
+  }
+
   .min-h-\[500px\] {
     min-height: 500px;
   }
@@ -2325,6 +2329,10 @@
     background-color: var(--color-red-50);
   }
 
+  .bg-red-500 {
+    background-color: var(--color-red-500);
+  }
+
   .bg-rose-600 {
     background-color: var(--color-rose-600);
   }
@@ -2805,6 +2813,10 @@
 
   .p-12 {
     padding: calc(var(--spacing) * 12);
+  }
+
+  .p-20 {
+    padding: calc(var(--spacing) * 20);
   }
 
   .px-0\.5 {

@@ -1,132 +1,23 @@
-[00:00:03.775] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:04.253] Server  LOG     ✓ Ready in 2.8s
-[00:00:07.819] Server  LOG     ○ Compiling /client ...
-[00:00:12.612] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:12.612] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <ScrollAndFocusHandler segmentPath={[...]}>
-      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
-        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
-          <LoadingBoundary name="/" loading={null}>
-            <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
-              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
-                <RedirectBoundary>
-                  <RedirectErrorBoundary router={{...}}>
-                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{...}} segmentPath={[...]} ...>
-                      <SegmentViewNode type="layout" pagePath="client/lay...">
-                        <SegmentTrieNode>
-                        <link>
-                        <script>
-                        <script>
-                        <script>
-                        <RootLayout>
-                          <html lang="en" suppressHydrationWarning={true} className="dark">
-                            <head>
-                              <style
-                                dangerouslySetInnerHTML={{
-+                                 __html: "\n            :root {\n              --primary: #8b5cf6;\n              --r..."
--                                 __html: "@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 6..."
-                                }}
-                              >
-                            ...
-                    ...
-        ...
-
-[00:00:14.124] Browser ERROR   Failed to load Lottie: {}
-[00:01:10.121] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:10.443] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <ScrollAndFocusHandler segmentPath={[...]}>
-      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
-        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
-          <LoadingBoundary name="/" loading={null}>
-            <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
-              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
-                <RedirectBoundary>
-                  <RedirectErrorBoundary router={{...}}>
-                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{...}} segmentPath={[...]} ...>
-                      <SegmentViewNode type="layout" pagePath="client/lay...">
-                        <SegmentTrieNode>
-                        <link>
-                        <script>
-                        <script>
-                        <script>
-                        <RootLayout>
-                          <html lang="en" suppressHydrationWarning={true} className="dark">
-                            <head>
-                              <style
-                                dangerouslySetInnerHTML={{
-+                                 __html: "\n            :root {\n              --primary: #8b5cf6;\n              --r..."
--                                 __html: "@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 6..."
-                                }}
-                              >
-                            ...
-                    ...
-        ...
-
-[00:01:10.722] Browser ERROR   Failed to load Lottie: {}
-[00:01:29.790] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:30.118] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <ScrollAndFocusHandler segmentPath={[...]}>
-      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
-        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
-          <LoadingBoundary name="/" loading={null}>
-            <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
-              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
-                <RedirectBoundary>
-                  <RedirectErrorBoundary router={{...}}>
-                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{...}} segmentPath={[...]} ...>
-                      <SegmentViewNode type="layout" pagePath="client/lay...">
-                        <SegmentTrieNode>
-                        <link>
-                        <script>
-                        <script>
-                        <script>
-                        <RootLayout>
-                          <html lang="en" suppressHydrationWarning={true} className="dark">
-                            <head>
-                              <style
-                                dangerouslySetInnerHTML={{
-+                                 __html: "\n            :root {\n              --primary: #8b5cf6;\n              --r..."
--                                 __html: "@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 6..."
-                                }}
-                              >
-                            ...
-                    ...
-        ...
-
-[00:01:30.337] Browser ERROR   Failed to load Lottie: {}
+[00:00:02.666] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:03.166] Server  LOG     ✓ Ready in 2.3s
+[00:00:06.641] Server  LOG     ○ Compiling /admin ...
+[00:00:08.611] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:14.183] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:18.023] Server  LOG     [Assign API] Fetching all admins...
+[00:00:19.576] Server  LOG     [Assign API] Found 4 admins.
+[00:00:34.934] Server  LOG     [Assign API] Fetching all admins...
+[00:00:35.069] Server  LOG     [Assign API] Found 4 admins.
+[00:00:35.730] Server  LOG     [Assign API] Fetching all admins...
+[00:00:35.811] Server  LOG     [Assign API] Found 4 admins.
+[00:00:39.863] Server  LOG     [Assign API] Fetching all admins...
+[00:00:39.916] Server  LOG     [Assign API] Found 4 admins.
+[00:00:40.973] Server  LOG     [POST Config] Incoming FormData Keys: ["name","description","adminUserId","logoPath","primaryColor","theme","layout","heroImage","features","contact_phone","contact_email","contact_address","social_twitter","social_facebook","social_instagram","social_linkedin","content_aboutUs","content_career","content_blog"]
+[00:00:40.974] Server  LOG     [POST Config] adminUserId from FormData: "admin456"
+[00:00:40.976] Server  LOG     [POST Config] Processing update for adminUserId: "admin456"
+[00:00:40.977] Server  LOG     Config Update - Received Features: {}
+[00:04:27.779] Server  LOG     [Assign API] Fetching all admins...
+[00:04:27.847] Server  LOG     [Assign API] Found 4 admins.
+[00:04:28.394] Server  LOG     [Assign API] Fetching all admins...
+[00:04:28.464] Server  LOG     [Assign API] Found 4 admins.
+[00:28:13.272] Server  LOG     ✓ Compiled in 1124ms
+[00:28:55.019] Server  LOG     ✓ Compiled in 876ms

@@ -11,10 +11,23 @@ export function middleware(request: NextRequest) {
 
     // 1. Resolve the subdomain
     let subdomain = '';
-    if (hostname && hostname.includes(customDomain)) {
+
+    // Local development port detection
+    if (hostname && (hostname.includes(':3001') || hostname === 'localhost:3001')) {
+        subdomain = 'superadmin';
+    } else if (hostname && (hostname.includes(':3002') || hostname === 'localhost:3002')) {
+        subdomain = 'admin';
+    }
+    // Vercel Project Name detection
+    else if (process.env.VERCEL_PROJECT_NAME === 'saas-platform-superadmin') {
+        subdomain = 'superadmin';
+    } else if (process.env.VERCEL_PROJECT_NAME === 'saas-platform-admindashboard') {
+        subdomain = 'admin';
+    }
+    // Custom domain or URL-based detection
+    else if (hostname && hostname.includes(customDomain)) {
         subdomain = hostname.replace(`.${customDomain}`, '').replace(customDomain, '');
     } else if (hostname) {
-        // Fallback for Vercel domains or other domains not matching customDomain
         if (hostname.includes('superadmin')) {
             subdomain = 'superadmin';
         } else if (hostname.includes('admin')) {

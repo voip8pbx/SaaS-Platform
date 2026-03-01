@@ -91,7 +91,9 @@ async function dbConnect() {
     }
     if (!cached.promise) {
         const opts = {
-            bufferCommands: false
+            bufferCommands: false,
+            connectTimeoutMS: 10000,
+            serverSelectionTimeoutMS: 10000
         };
         cached.promise = __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f$mongoose$29$__["default"].connect(MONGODB_URI, opts).then((mongoose)=>{
             return mongoose;
@@ -246,6 +248,8 @@ const __TURBOPACK__default__export__ = Admin;
 __turbopack_context__.s([
     "GET",
     ()=>GET,
+    "OPTIONS",
+    ()=>OPTIONS,
     "POST",
     ()=>POST,
     "dynamic",
@@ -272,13 +276,14 @@ const dynamic = 'force-dynamic';
 const revalidate = 0;
 async function POST(req) {
     try {
+        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])(); // Ensure DB is connected first
         const formData = await req.formData();
         console.log("[POST Config] Incoming FormData Keys:", [
             ...formData.keys()
         ]);
         console.log("[POST Config] adminUserId from FormData:", formData.get('adminUserId'));
         // Read existing file content first to support partial updates (preservation)
-        const targetPath = 'd:\\NEXT.js\\SuperAdmin\\templates\\TravelPlannerWebsite\\src\\config\\siteConfig.ts';
+        const targetPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), 'templates', 'TravelPlannerWebsite', 'src', 'config', 'siteConfig.ts');
         let existingContent = '';
         if (__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(targetPath)) {
             try {
@@ -335,15 +340,22 @@ async function POST(req) {
             const buffer = Buffer.from(await logoFile.arrayBuffer());
             const fileName = `logo-${Date.now()}${__TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].extname(logoFile.name)}`;
             // Save to Template's public folder
-            const uploadDir = 'd:\\NEXT.js\\SuperAdmin\\templates\\TravelPlannerWebsite\\public\\uploads';
-            if (!__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(uploadDir)) {
-                __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].mkdirSync(uploadDir, {
-                    recursive: true
-                });
+            const uploadDir = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), 'templates', 'TravelPlannerWebsite', 'public', 'uploads');
+            try {
+                if (!__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(uploadDir)) {
+                    __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].mkdirSync(uploadDir, {
+                        recursive: true
+                    });
+                }
+                const filePath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(uploadDir, fileName);
+                __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].writeFileSync(filePath, buffer);
+                logoUrl = `/uploads/${fileName}`;
+            } catch (e) {
+                console.warn('Failed to save logo file (likely read-only filesystem on Vercel):', e);
+                // On Vercel, this will fail. Ideally, logo should be uploaded to S3 or similar.
+                // We'll keep the previous logoUrl if this fails.
+                logoUrl = getExisting('logo');
             }
-            const filePath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(uploadDir, fileName);
-            __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].writeFileSync(filePath, buffer);
-            logoUrl = `/uploads/${fileName}`;
         } else if (!logoUrl) {
             logoUrl = getExisting('logo');
         }
@@ -409,7 +421,11 @@ async function POST(req) {
 
 export type SiteConfig = typeof siteConfig;
 `;
-        __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].writeFileSync(targetPath, fileContent, 'utf-8');
+        try {
+            __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].writeFileSync(targetPath, fileContent, 'utf-8');
+        } catch (e) {
+            console.warn('Failed to save siteConfig.ts to disk (likely read-only filesystem on Vercel). Using DB as source of truth.', e);
+        }
         // Save to MongoDB
         try {
             await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])();
@@ -480,7 +496,8 @@ export type SiteConfig = typeof siteConfig;
 }
 async function GET() {
     try {
-        const targetPath = 'd:\\NEXT.js\\SuperAdmin\\templates\\TravelPlannerWebsite\\src\\config\\siteConfig.ts';
+        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])(); // Ensure DB is connected first
+        const targetPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), 'templates', 'TravelPlannerWebsite', 'src', 'config', 'siteConfig.ts');
         if (!__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(targetPath)) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                 success: false,
@@ -622,6 +639,16 @@ async function GET() {
             status: 500
         });
     }
+}
+async function OPTIONS() {
+    return new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"](null, {
+        status: 200,
+        headers: {
+            'Allow': 'GET, POST, OPTIONS',
+            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+        }
+    });
 }
 }),
 ];
